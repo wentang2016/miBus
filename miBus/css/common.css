@@ -1,0 +1,379 @@
+/*initial html element*/
+
+* {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button {
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+}
+
+button,
+input {
+	border-style: none;
+	border-width: 0;
+}
+
+button{
+	background-color:rgb(221,221,221);
+}
+
+input,
+textarea {
+	-webkit-appearance: none;
+	padding: 0 5px;
+}
+
+input[type=radio] {
+	-webkit-appearance: radio;
+}
+
+hr {
+	border-style: solid;
+	border-bottom-width: 0 !important;
+}
+
+
+/*initialzation finished*/
+
+body {
+	font-family: "微软雅黑";
+	font-size: 0.875em;
+	margin: 0;
+}
+
+body section {
+	margin: 20px 3%;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.c_block_margin {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+.c_margin>div,
+.c_margin>h3 {
+	margin-bottom: 15px;
+	color: rgb(100, 100, 100);
+}
+
+.c_border {
+	border-color: rgb(229, 229, 229);
+	border-style: solid;
+	border-width: 1px;
+}
+
+.c_bigRadius {
+	border-radius: 10px;
+}
+
+.c_bd_radius {
+	border-radius: 5px;
+}
+
+.c_bigBorder {
+	width: 100%;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.c_pic {
+	padding: 6px;
+	background: rgb(218, 218, 218);
+	box-shadow: 1px 1px 2px rgb(218, 218, 218);
+	width: 100px;
+	height: 100px;
+	background-clip: content-box;
+	background-size: cover;
+}
+
+.c_bt {
+	background: rgb(91, 153, 76);
+	border-radius: 10px;
+	text-align: center;
+	padding: 2px 15px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.c_big_bt {
+	padding: 20px 18px;
+	border-radius: 5px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.c_line_bt {
+	color: rgba(255, 255, 255, 0.9);
+	padding: 6px 0;
+	width: 100%;
+}
+
+.c_small {
+	font-size: 0.8em;
+}
+
+.c_gray {
+	color: rgb(218, 218, 218);
+}
+
+.c_gray_text {
+	color: rgb(100, 100, 100);
+}
+
+.c_gray_background {
+	background-color: rgb(100, 100, 100);
+}
+
+.c_green {
+	background: rgb(105, 170, 88);
+}
+
+.c_green_tx {
+	color: rgb(91, 153, 76);
+}
+
+.c_link_color {
+	/*color: #157EFB;*/
+	color: #269fff;
+}
+
+.c_link_background {
+	/*background: #157EFB;*/
+	background: #269fff;
+	color: white;
+}
+
+.c_bt_sec {
+	margin-top: 8px;
+	text-align: right;
+}
+
+.c_secTB {}
+
+.c_secTB .c_hd {
+	width: 100%;
+	padding: 5px 0;
+	color: white;
+	background: rgb(132, 125, 115);
+	text-align: center;
+}
+
+.c_secTB .c_bd {
+	padding: 15px 0 0 3px;
+	display: table;
+	border-spacing: 3px;
+	width: 100%;
+	text-align: center;
+}
+
+.c_secTB .c_bd .c_bd_hd {
+	background: rgb(230, 230, 230);
+	color: rgb(160, 155, 149);
+	display: table-row;
+	font-size: 0.8em;
+}
+
+.c_secTB .c_bd .c_bd_hd span {
+	padding: 4px 0;
+	display: table-cell;
+	border-radius: 3px;
+	margin: 0 3px;
+}
+
+.c_secTB .c_bd .c_bd_rw {
+	background: rgb(232, 245, 212);
+	color: rgb(105, 170, 88);
+	display: table-row;
+}
+
+.c_secTB .c_bd .c_bd_rw span {
+	display: table-cell;
+	padding: 12px 0;
+	border-radius: 3px;
+	font-size: 1.2em;
+}
+
+.c_alipay {
+	border: 1px solid green;
+	width: 100px;
+	border-bottom-right-radius: 0 !important;
+}
+
+.c_alipay img {
+	width: 100%;
+}
+
+.c_alipay .payCorner {
+	padding: 6px;
+	border: 1px solid transparent;
+	border-image: url(../img/borderCorner.png);
+	border-image-slice: 0 100% 100% 0;
+	border-image-width: 10px;
+	/*border-image-outset: 3px 0;*/
+}
+
+.c_alipay.noBorder,
+.c_alipay.noBorder .payCorner {
+	border-width: 0;
+}
+
+.c_input input {
+	border-color: rgb(229, 229, 229);
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	margin-top: 8px;
+}
+
+.c_input label {
+	display: inline-block;
+	width: 100px;
+}
+
+.c_blankBt {
+	border-color: #6c9a6c;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	padding: 0 10px;
+	color: #6c9a6c;
+	background: transparent;
+}
+
+p {
+	margin: 10px 0;
+	line-height: 1.5;
+}
+
+.c_green_border {
+	border-color: rgb(105, 170, 88);
+}
+
+.c_table {
+	display: table;
+	border-radius: 15px;
+	text-align: center;
+	font-size: 0.8em;
+	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	/*border-collapse:collapse;*/
+}
+
+.c_table .c_table_header {
+	display: table-row;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+.c_table .c_table_header span {
+	position: relative;
+	display: table-cell;
+	padding: 6px 2px 6px 1px;
+	/*border-right: 1px solid rgb(229, 229, 229);*/
+	color: white;
+	background: rgb(105, 170, 88);
+	vertical-align: middle;
+	/*white-space: nowrap;*/
+}
+
+.c_table_simple {
+	display: block;
+	/*color: darkgray;*/
+	line-height: 1.4;
+}
+
+.c_table_simple .c_table_simple_header {
+	display: table;
+	text-align: center;
+	width: 100%;
+}
+
+.c_table_simple span {
+	display: table-cell;
+	padding: 4px 1px;
+	vertical-align: middle;
+	position: relative;
+}
+
+.c_table_simple span+ span:after {
+	content: '';
+	height: 60%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	position: absolute;
+	margin: auto;
+	border-left: 1px solid darkgray;
+}
+
+.c_table_simple hr {
+	border-style: dashed;
+}
+
+.c_table .c_table_header span:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	height: 40%;
+	content: '';
+	border: 1px solid rgb(229, 229, 229);
+}
+
+.c_table .c_table_header span:last-child:after {
+	display: none;
+}
+
+.c_table .c_table_header span:last-child {
+	border-right-width: 0;
+}
+
+.c_table .c_table_row {
+	display: table-row;
+}
+
+.c_table .c_table_row span {
+	display: table-cell;
+	vertical-align: middle;
+	word-wrap: break-word;
+	overflow: hidden;
+	max-width: 100px;
+	padding: 6px 2px;
+	border-top: 1px solid rgb(229, 229, 229);
+	border-right: 1px solid rgb(229, 229, 229);
+}
+
+.c_table .c_table_row span:last-child {
+	border-right-width: 0;
+}
+
+/*use for valign elements, please make sure the paraent element has relative style
+ * be care of the the, when this class used the element will collapsed
+ * */
+
+.c_valign {
+	position: absolute;
+	transform: translateY(-50%);
+	top: 50%;
+}

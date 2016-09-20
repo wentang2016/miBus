@@ -1,0 +1,66 @@
+#home .header {
+	background: transparent url('../../img/header.jpg') no-repeat scroll top center;
+	background-size: 100%;
+	width: 100%;
+	color: white;
+}
+
+#home .header .bt {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	background: rgb(105, 170, 88);
+}
+
+#home .header .pic {
+	padding-top: 24px;
+	text-align: center;
+	color: white;
+}
+
+#home .header .pic .img {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	background: white url();
+	background-size: cover;
+
+}
+
+#home .header .pic .des {
+	padding: 3px;
+}
+
+#home .header .loc {
+	padding-left: 10px;
+	margin-bottom: 3px;
+}
+
+#home .header .bt>span:nth-of-type(1) {
+	position: absolute;
+	height: 20px;
+	width: 40%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+	margin: auto;
+}
+
+#home .header .bt>span:nth-last-of-type(1) {
+	position: absolute;
+	height: 20px;
+	left: auto;
+	right: 5px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	opacity: 0.5;
+}
+
+
+/*#home>section{
+	margin:20px 5%;
+}*/

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="import" href="./headerDiff.tpl?__inline">
+		<link rel="stylesheet" href="../css/mui.picker.min.css">
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js"></script>
+		<title>尊享米家一生一次会员服务，298拿千元大礼包</title>
+		<style type="text/css">
+			.addr img {
+				position: relative;
+				left: -23px;
+				top: 7px;
+				transform: scale(0.7);
+			}
+		</style>
+	</head>
+
+	<body id="recruit" >
+		<div v-show="!show">努力加载中......</div>
+		<section class="c_margin c_input" v-show="show">
+			<div class="c_pic" style="text-align: center;margin:20px auto;border-radius:50%;width:120px;height:120px">
+				<img v-bind:src="headimg" style="border-radius:50%;width:100%;" />
+			</div>
+			<div style="text-align: center;">
+				你的米可儿美容护肤顾问 [[agent_name]]
+			</div>
+
+			<h3 style="color:green">*请填写你的资料</h3>
+			<div><label class="c_green_tx c_small">ID: [[agent_id]]</label></div>
+			<div style="margin-bottom:3px;"><label>姓名</label><input type="text" id="name" v-model="name" class="c_border"></div>
+			<div style="margin-bottom:3px;"><label>电话</label><input type="tel" id="telephone" @input="setTel" v-model="tel" class="c_border"></div>
+			<div style="margin-bottom:3px;"><label>微信</label><input type="text" id="weiXin" v-model="weiXin" class="c_border"></div>
+
+			<div @tap="showPicker" class="addr">
+				<label>省份</label><input type="text" readonly id="province" v-model="province" class="c_border"><img src="../img/seleRImg.png" style=""><br>
+				<label>城市</label><input type="text" readonly id="capital" v-model="capital" class="c_border"><img src="../img/seleRImg.png"><br>
+				<label>地区</label><input type="text" readonly id="district" v-model="district" class="c_border"><img src="../img/seleRImg.png">
+			</div>
+			<div>
+				<label>详细地址</label><br>
+				<input type="text" class="c_border c_bigBorder" v-model="detailAddr">
+			</div>
+			<div><button class="c_bt c_line_bt c_green" @click="save">提交</button></div>
+			<div style="line-height: 1.4;">*地址信息仅用于将来给您寄购买的产品和每月试用产品，<span class="c_green_tx">我们将严格保密，请放心填写！</span></div>
+
+		</section>
+
+		<script>
+			require(['../component/common', '../component/cityData'], function(COMMON, cityData) {
+
+				var cityPicker = new mui.PopPicker({
+					layer: 3
+				})
+
+				cityPicker.setData(cityData)
+
+				var vm = new Vue({
+					el: '#recruit',
+					data: {
+						show:false,
+						domain: COMMON.DOMAIN,
+						headimg: '',
+						qrcode: '',
+						agent_name: '',
+						agent_id: '',
+
+						slug: '',
+
+						//client info
+						name: '',
+						tel: '',
+						weiXin: '',
+						province: '',
+						capital: '',
+						district: '',
+						detailAddr: ''
+					},
+					methods: {
+						showPicker: function(evt) {
+							cityPicker.show(function(items) {
+								this.province = items[0].text
+								this.capital = items[1].text
+								this.district = items[2].text ? items[2].text : ''
+							}.bind(this))
+						},
+						save: function() { // 保存新会员信息
+							//console.log(this.textAreaVal)
+							//alertN('save')
+							if(!/^1\d{10}$/.test(this.tel)) {
+								alertN('电话号码格式不正确')
+								return
+							}
+							if(this.name.trim() == "" || this.weiXin.trim() == "" || this.province.trim() == "" || this.capital.trim() == "" || this.detailAddr.trim() == "") {
+								alertN('请检查信息是否填写完整')
+								return
+							}
+							var self = this
+							$.ajax({
+								type: "POST",
+								url: COMMON.DOMAIN + "/ajax/member/createMember1", // 此处改为createMember1 是因为次页面是分享出去的，需要跨域，通过不同的接口访问
+								//agent_id:19,
+								data: {
+									agent_id: this.agent_id,
+									submit_type: 1, //会员提交
+									name: this.name,
+									phone: this.tel,
+									wechat: this.weiXin,
+									province: this.province,
+									city: this.capital,
+									area: this.district,
+									address: this.detailAddr
+								},
+								success: function(data) {
+									console.log(data);
+									if(data.status == 200) {
+										alertN('您已成功提交地址信息，感谢您对米家的信任和支持', function() {
+											location.hash = '#recruitNew-?slug=' + self.slug
+											//location.href = location.pathname + "?slug=" + self.slug
+										})
+									}else if(data.status==300){
+										alertN('你的资料已经注册，请勿重复提交')
+									}else{
+										alertN('后台错误')
+									}
+
+								},
+								error: function(xhr, errorType, error) {
+									alertN('后台错误' + xhr.statusText)
+								}
+							});
+
+						},
+						setTel: function(evt) {
+							var val = evt.target.value
+
+							evt.target.value = ''
+							if(val == null) return;
+
+							var arr = val.match(/1\d{0,10}/)
+
+							if(arr && arr.length > 0) {
+								this.tel = arr.shift();
+								evt.target.value = this.tel
+							}
+
+						}
+
+					}
+
+				})
+				var slug = location.toJsonMap().slug
+					//slug = 'oyRZXs9ScmCYCtnahcFmJtQNmlKg'
+				vm.slug = slug
+				$.ajax({
+					type: "get",
+					url: COMMON.DOMAIN + "/ajax/member/getAgent?slug=" + slug,
+					async: true,
+					success: function(data, status, xhr) {
+						if(status == 'success' && data.status == 200) {
+							vm.headimg = data.agent.headimg
+							vm.qrcode = data.agent.qrcode
+							vm.agent_name = data.agent.name
+							vm.agent_id = data.agent.agent_id
+							vm.show=true
+						}
+					},
+					error: function(xhr, errorType, error) {
+
+					}
+				});
+			})
+		</script>
+
+	</body>
+
+</html>

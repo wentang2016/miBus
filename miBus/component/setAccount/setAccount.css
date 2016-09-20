@@ -1,0 +1,100 @@
+
+/* transition style for Vue*/
+#pay.pay-transition {
+	transition: background linear 0.5s;
+	background: rgba(100, 100, 100, 0.6);
+}
+
+#pay.pay-enter,
+#pay.pay-leave {
+	background: none;
+}
+
+#pay.pay-transition .content{
+	top:20%;
+}
+
+
+#pay.pay-enter .content,
+#pay.pay-leave .content{
+	top:110%;
+}
+
+/*end transition style for Vue*/
+
+
+/*mask style*/
+
+.maskPanel {
+	position: fixed;
+	/*only fixed can be used as fixed picker will stumble animation */
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+
+
+/*pay style*/
+
+#pay .content {
+	position: absolute;
+	left: 0;
+	top: 110%;
+	right: 0;
+	margin: auto;
+	width: 80%;
+	overflow: scroll;
+	font-size: 1.2em;
+	color: #847d73;
+	background: white url(../../img/editUserInfo.png) repeat top center;
+	transition:top ease  0.5s;
+	
+}
+
+#pay .content h3 {
+	background: rgb(211, 146, 96);
+	border-radius: 10px 10px 0 0;
+	height: 25px;
+}
+
+#pay .content .innerContent {
+	padding: 0 35px;
+	line-height: 1.7;
+}
+
+#pay .content .password {
+	white-space: nowrap;
+	position: relative;
+}
+
+/*#pay .content .password .fakeInput {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 1;
+	z-index:10;
+	background:black;
+}*/
+
+
+#pay .content .password span input {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	border:1px solid rgb(200,200,200);
+}
+
+
+#pay .content .password input {
+	padding: 6px;
+	border-radius: 7px;
+	/* font-size: 1.2em; */
+	text-align: center;
+}

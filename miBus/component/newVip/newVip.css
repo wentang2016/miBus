@@ -1,0 +1,304 @@
+#newVip .bg_sel {
+	color: white;
+	opacity: 1;
+}
+
+#newVip .c_big_bt img {
+	width: 15px;
+	margin-right: 5px;
+	opacity: 0.7;
+}
+
+#newVip .bg_sel img {
+	opacity: 1;
+}
+
+#newVip h3 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#newVip textarea {
+	width: 100%;
+	max-width: 100%;
+	min-height: 100px;
+	padding: 20px 10px;
+	margin-bottom: 10px;
+}
+
+#newVip .margin>div {
+	margin-bottom: 10px;
+}
+
+#newVip .threeCol {
+	color: rgb(100, 100, 100);
+	white-space: nowrap;
+}
+
+#newVip .threeCol span {
+	display: inline-block;
+	max-width: 32.5%;
+	width: 32.5%;
+	position: relative;
+}
+
+#newVip .threeCol span input {
+	width: 65%;
+	border-radius: 10px;
+	margin-left: 3px;
+}
+
+#newVip #address span input {
+	width: 100%;
+	border-radius: 10px;
+	background: transparent;
+	margin-left: 0;
+}
+
+#newVip #address span img {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	height: 15px;
+}
+
+span.commonSel {
+	position: relative;
+	display: inline-block;
+	width: 30%;
+}
+
+span.commonSel .input {
+	width: 100%;
+	border-radius: 10px;
+	background: transparent;
+	margin-left: 0;
+}
+
+span.commonSel img {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	height: 15px;
+	bottom: 2px;
+	margin: auto;
+}
+
+#newVip .threeCol span:nth-last-of-type(1) {
+	text-align: right;
+}
+
+#newVip .stepBT {
+	color: white;
+	background: rgb(112, 150, 100);
+}
+
+#newVip .stepBT span {
+	color: rgb(218, 238, 174)
+}
+
+#newVip #secContainer {
+	position: relative;
+	/*	overflow:hidden;*/
+	/*child 是absolute定位，父容器的高度已经坍塌，隐藏就看不见了*/
+}
+
+#secContainer #newVipSec,
+#secContainer #vipListSec {
+	/*position: absolute;*/
+}
+
+
+/*transition for vue*/
+
+#newVip .swip-transition {
+	transition: all ease 0.5s;
+	left: 0;
+	top: 0;
+	right: 0;
+	opacity: 1;
+}
+
+#newVip .swip-enter,
+#newVip .swip-leave {
+	overflow: hidden;
+	left: 100%;
+	right: -30%;
+	opacity: 0;
+}
+
+#edituserinfo.editUserShow-transition {
+	transition: background linear 0.5s;
+	background: rgba(100, 100, 100, 0.6);
+}
+
+#edituserinfo.editUserShow-transition .usercont {
+	top: 13%;
+}
+
+#edituserinfo.editUserShow-enter,
+#edituserinfo.editUserShow-leave {
+	background: none;
+}
+
+#edituserinfo.editUserShow-enter .usercont,
+#edituserinfo.editUserShow-leave .usercont {
+	top: 110%;
+}
+
+#pay.pay-transition {
+	transition: background linear 0.5s;
+	background: rgba(100, 100, 100, 0.6);
+}
+
+#pay.pay-enter,
+#pay.pay-leave {
+	background: none;
+}
+
+#pay.pay-transition .content {
+	top: 20%;
+}
+
+#pay.pay-enter .content,
+#pay.pay-leave .content {
+	top: 110%;
+}
+
+
+/*end transition style for Vue*/
+
+
+/*mask style*/
+
+.maskPanel {
+	position: fixed;
+	/*only fixed can be used as fixed picker will stumble animation */
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+#edituserinfo {}
+
+#edituserinfo .usercont {
+	position: absolute;
+	width: 75%;
+	left: 0;
+	right: 0;
+	top: 110%;
+	margin: auto;
+	background: white url('../../img/editUserInfo.png') repeat top center;
+	transition: top ease 0.5s;
+}
+
+#edituserinfo .usercont input {
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+#edituserinfo .usercont input,
+#edituserinfo .usercont textarea,
+#edituserinfo .usercont .commonSel {
+	width: 80%;
+}
+
+#edituserinfo .usercont .info {
+	width: 70%;
+	display: inline-block;
+	text-align: left;
+	white-space: nowrap;
+	position: relative;
+	left: -7px;
+}
+
+#edituserinfo .usercont .info label {
+	width: 33px;
+	display: inline-block;
+}
+
+#edituserinfo .usercont>div {}
+
+#edituserinfo .usercont textarea {
+	margin-left: 33px;
+	margin-bottom: 0;
+	max-width: 80%;
+	;
+	padding: 10px;
+	min-height: initial;
+}
+
+#edituserinfo .usercont .commonSel .input {
+	background: white;
+	width: 100% !important;
+}
+
+#edituserinfo .usercont .header {
+	background: rgb(132, 125, 115);
+	color: rgb(230, 230, 230);
+	padding: 8px 0;
+	background-clip: border-box;
+}
+
+
+/*pay style*/
+
+#pay .content {
+	position: absolute;
+	left: 0;
+	top: 110%;
+	right: 0;
+	margin: auto;
+	width: 80%;
+	overflow: scroll;
+	font-size: 1.2em;
+	color: #847d73;
+	background: white url(../../img/editUserInfo.png) repeat top center;
+	transition: top ease 0.5s;
+}
+
+#pay .content h3 {
+	background: rgb(211, 146, 96);
+	border-radius: 10px 10px 0 0;
+	height: 25px;
+}
+
+#pay .content .innerContent {
+	padding: 0 35px;
+	line-height: 1.7;
+}
+
+#pay .content .password {
+	white-space: nowrap;
+	position: relative;
+}
+
+
+/*#pay .content .password .fakeInput {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 1;
+	z-index:10;
+	background:black;
+}*/
+
+#pay .content .password span input {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid rgb(200, 200, 200);
+}
+
+#pay .content .password input {
+	padding: 6px;
+	border-radius: 7px;
+	/* font-size: 1.2em; */
+	text-align: center;
+}

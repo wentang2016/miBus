@@ -1,0 +1,31 @@
+#btHeader .bg_sel {
+	color: white;
+	opacity: 1;
+}
+
+#btHeader .c_big_bt img {
+	width: 15px;
+	margin-right: 5px;
+	opacity: 0.7;
+}
+
+#btHeader .bg_sel img {
+	opacity: 1;
+}
+
+
+/*overwrite*/
+
+#btHeader .c_big_bt {
+	padding-left: 8px;
+	padding-right: 8px;
+	min-width:80px;
+
+}
+
+#btHeader section {
+	text-align: center;
+	margin-left: 0;
+	margin-right: 0;
+	white-space: nowrap;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="import" href="./header.tpl?__inline">
+		<title>尊享米家一生一次会员服务，298拿千元大礼包</title>
+		<style type="text/css">
+			body {
+				background: rgb(242, 236, 224) url(../img/recruitBG.png) repeat top;
+				line-height: 1.4;
+			}
+			
+			.desc {
+				display: inline-block;
+				width: 65%;
+				width: calc(100% - 110px);
+				margin-left: 5px;
+				vertical-align: top;
+				margin-top: 5px;
+			}
+			
+			.pic {
+				padding-top: 24px;
+				text-align: center;
+				color: white;
+			}
+			
+			.pic .img {
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				background-color: white;
+				background-size: cover;
+			}
+			
+			.pic .des {
+				padding: 3px;
+				color: gray;
+			}
+			
+			img {
+				width: 100%;
+			}
+			
+			.header {
+				position: absolute;
+				top: -5px;
+				left: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+
+	<body class="c_gray_text" id="recruit" v-cloak>
+		<div class="pic header">
+			<div class="img" v-bind:style="'background-image:url('+headimg+')'">
+
+			</div>
+			<div class="des">
+				[[name]]
+			</div>
+
+		</div>
+		<div><img src="../img/recruitBody.jpg" /></div>
+		<section class="c_margin" style="margin-top:0;">
+			<div>
+				<div class="c_pic" style="display:inline-block;padding:0;">
+					<img v-bind:src="domain+qrcode" />
+				</div>
+				<div class="desc">
+					<h3 style="font-weight:bold;"><img src="../img/leaf.png" style="width:10px;margin-right:5px;"/>hi, 我是[[name]], 米可儿美容顾问:</h3> [[desc]]
+				</div>
+			</div>
+			<div style="margin:5px 0; color:white;text-align: center;">
+				<div class="c_green" style="display:inline-block;padding: 7px 15px;">
+					<h3>长按二维码联系[[name]]</h3>
+					<h3>加入米家会员吧</h3>
+				</div>
+
+			</div>
+		</section>
+
+		<script>
+			require(['../component/common'], function(COMMON) {
+				var vm = new Vue({
+					el: '#recruit',
+					data: {
+						domain: COMMON.DOMAIN,
+						headimg: '',
+						qrcode: '',
+						name: '',
+						desc: 'hi，我爱玩，爱生活。从一个米家产品的粉丝，到成为米家正式认证的美容顾问，米可儿对我来说，已经是一种生活方式，清新、自然、有态度。给你自己一次机会，来感受不一样的米可儿吧！'
+					}
+				})
+				var slug = location.toJsonMap().slug
+					//alertN('slug'+slug)
+					//slug = 'oyRZXs9ScmCYCtnahcFmJtQNmlKg'
+				vm.domain = COMMON.DOMAIN
+				$.ajax({
+					type: "get",
+					url: COMMON.DOMAIN + "/ajax/member/getAgent?slug=" + slug,
+					async: true,
+					success: function(data, status, xhr) {
+						if(data.status == 200) {
+							vm.headimg = data.agent.headimg
+							vm.qrcode = data.agent.qrcode
+							vm.name = data.agent.name
+
+							if(data.agent.description.trim() != '')
+								vm.desc = data.agent.description
+						}
+					},
+					error: function(xhr, errorType, error) {
+
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

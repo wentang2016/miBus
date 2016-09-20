@@ -1,0 +1,57 @@
+span.commonSel {
+	position: relative;
+	display: inline-block;
+	width: 35%;
+}
+
+span.commonSel .input {
+	width: 100%;
+	border-radius: 10px;
+	background: transparent;
+	margin-left: 0;
+}
+
+span.commonSel img {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	height: 15px;
+	bottom: 2px;
+	margin: auto;
+}
+
+.search {
+	text-align: center;
+}
+
+.search input {
+	margin: 0 !important;
+}
+
+.search>label {
+	width: initial;
+}
+
+.dateInput {
+	height: 20px;
+	transform: translateY(-50%);
+	position: absolute;
+	top: 10px;
+	left: 0;
+	right: 0;
+}
+
+
+.searchItemAni-transition{
+	transition:opacity ease 0.5s, height ease 0.5s;
+	height: 167px;
+	
+}
+
+.searchItemAni-enter,.searchItemAni-leave{
+	opacity:0.2;
+	height:0;
+	overflow: hidden;
+	padding:0;
+	border-color: transparent;
+}
